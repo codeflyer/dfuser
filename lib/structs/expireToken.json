@@ -1,0 +1,24 @@
+{
+  "module": "User",
+  "className": "ExpireToken",
+  "attributes": [
+    {
+      "name": "token",
+      "type": "string",
+      "isNullable" : false,
+      "accessors": [
+        "get"
+      ]
+    },
+    {
+      "name": "expire",
+      "type": "date",
+      "isNullable" : false,
+      "accessors": [
+        "get",
+        "set",
+        "getAsync"
+      ]
+    }
+  ]
+}

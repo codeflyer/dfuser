@@ -1,0 +1,148 @@
+{
+  "module": "User",
+  "className": "User",
+  "collectionName": "dfcore_users",
+  "useTimestamp" : true,
+  "timestampFlat" : false,
+  "repositoryType" : "MongoDBSequence",
+  "attributes": [
+    {
+      "name": "username",
+      "type": "string",
+      "accessors": [
+        "get",
+        "set",
+        "getSync"
+      ]
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "accessors": [
+        "get",
+        "set",
+        "getSync"
+      ]
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "accessors": [
+        "get",
+        "set",
+        "getSync"
+      ]
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "accessors": [
+        "get",
+        "set",
+        "getSync"
+      ]
+    },
+    {
+      "name": "surname",
+      "type": "string",
+      "accessors": [
+        "get",
+        "set",
+        "getSync"
+      ]
+    },
+    {
+      "name": "from",
+      "type": "date",
+      "accessors": [
+        "get",
+        "set",
+        "getAsync"
+      ]
+    },
+    {
+      "name": "expires",
+      "type": "date",
+      "nullable" : true,
+      "accessors": [
+        "get",
+        "set",
+        "getAsync"
+      ]
+    },
+    {
+      "name": "archived",
+      "type": "boolean",
+      "accessors": [
+        "is",
+        "setIs",
+        "isAsync"
+      ]
+    },
+    {
+      "name": "hide",
+      "type": "boolean",
+      "accessors": [
+        "is",
+        "setIs",
+        "isAsync"
+      ]
+    },
+    {
+      "name": "firstView",
+      "type": "date",
+      "nullable" : true,
+      "accessors": [
+        "get",
+        "set",
+        "getAsync"
+      ]
+    },
+    {
+      "name": "confirmView",
+      "type": "date",
+      "nullable" : true,
+      "accessors": [
+        "get",
+        "set",
+        "getAsync"
+      ]
+    },
+    {
+      "name": "confirmRequired",
+      "type": "boolean",
+      "accessors": [
+        "is",
+        "setIs",
+        "isAsync"
+      ]
+    },
+    {
+      "name": "removeIfExpired",
+      "type": "boolean",
+      "accessors": [
+        "is",
+        "setIs",
+        "isAsync"
+      ]
+    },
+    {
+      "name": "popupOnFirstView",
+      "type": "boolean",
+      "accessors": [
+        "is",
+        "setIs",
+        "isAsync"
+      ]
+    },
+    {
+      "name": "customData",
+      "type": "object",
+      "accessors": [
+        "get",
+        "set",
+        "getAsync"
+      ]
+    }
+  ]
+}
