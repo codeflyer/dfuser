@@ -11,7 +11,7 @@ describe('REST: modifyUser', function() {
   });
 
   beforeEach(function(done) {
-    fixtures.clear(function(err) {
+    ConnectionStore.getConnection().dropDatabase(function(err) {
       fixtures.load(__dirname + '/../business/fixtures/users.js', done);
     });
   });

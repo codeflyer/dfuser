@@ -13,7 +13,8 @@ describe('user: UserManager activeUserByToken', function() {
   var token = 'd3c18e6d8998e5271bdb6e1bb79941685ed1bcfd4be1d44bdda68240b';
   beforeEach(function(done) {
     Factory.reset();
-    fixtures.clear(function(err) {
+
+    ConnectionStore.getConnection().dropDatabase(function(err) {
       fixtures.load(
           path.join(__dirname, '../..', '/fixtures/users.js'), done);
     });

@@ -1,3 +1,4 @@
+require('should');
 process.env.NODE_CONFIG_PERSIST_ON_CHANGE = 'N';
 process.env.NODE_ENV = 'test';
 
@@ -19,7 +20,7 @@ global.SESSION_COOKIE_NAME = 'connect.sid';
 var config = require('./config');
 
 var EntityX = require('entityx');
-var userModule = require('modules/user');
+var userModule = require('../lib/index');
 console.log('config');
 console.log(config);
 userModule.init(config);
@@ -28,15 +29,6 @@ var ConnectionStore = require('connection-store');
 var ready = require('readyness');
 
 var fixtures = require('pow-mongodb-fixtures').connect(global.DATABASE_NAME);
-var fixtureConnected = ready.waitFor('fixtureDbOk');
-fixtures.clear(function(err) {
-  fixtures.load('./fixtures/users.js',
-      function() {
-        fixtureConnected();
-      }
-  );
-});
-
 ConnectionStore.addConnection('fixtures', fixtures);
 
 var MongoClient = require('mongodb').MongoClient;

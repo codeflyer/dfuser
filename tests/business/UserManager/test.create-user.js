@@ -22,8 +22,10 @@ describe('user: Create User', function() {
     Factory.reset();
     logEvent = eventEmitter.on('user:logger:info', logFunc);
     logEvent = eventEmitter.on('user:logger:error', logFunc);
-    fixtures.clearAllAndLoad(
-        path.join(__dirname, '../..', '/fixtures/users-empty.js'), done);
+    ConnectionStore.getConnection().dropDatabase(function(err) {
+      fixtures.load(
+          path.join(__dirname, '../..', '/fixtures/users-empty.js'), done);
+    });
   });
 
   afterEach(function(done) {

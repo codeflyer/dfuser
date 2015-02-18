@@ -13,19 +13,30 @@ describe('user: UserManager loadByRememberMeToken', function() {
   var token = 'rememberme998e5271bdb6e1bb79941685ed1b';
   beforeEach(function(done) {
     Factory.reset();
-    fixtures.clear(function(err) {
+    ConnectionStore.getConnection().dropDatabase(function(err) {
       fixtures.load(
           path.join(__dirname, '../..', '/fixtures/users.js'), done);
     });
   });
 
   it('Existent token', function(done) {
-    UserManager.loadByRememberMeToken(token).then(function(user) {
-      user.getId().should.be.equal(6);
-      done();
-    }).catch(function(err) {
-      done(err);
-    });
+    var driver = Factory.getRepository('User/User');
+    driver.mongoDbUpdate({_id: 6}, {
+          $set: {
+            'rememberMeToken.expire': Date.now() + 1000
+          }
+        }
+    ).then(function() {
+          return UserManager.loadByRememberMeToken(token);
+        }
+    ).then(function(user) {
+          user.getId().should.be.equal(6);
+          done();
+        }
+    ).catch(function(err) {
+          done(err);
+        }
+    );
   });
 
   it('Existent token expired', function(done) {

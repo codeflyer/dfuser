@@ -10,7 +10,7 @@ describe('user: permanent delete', function() {
 
   beforeEach(function(done) {
     Factory.reset();
-    fixtures.clear(function(err) {
+    ConnectionStore.getConnection().dropDatabase(function(err) {
       fixtures.load(__dirname + '/../business/fixtures/users.js', done);
     });
   });

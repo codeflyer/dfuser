@@ -14,8 +14,10 @@ describe('POST /api/v1/user/createnew', function() {
 
   beforeEach(function(done) {
     Factory.reset();
-    fixtures.clearAllAndLoad(
-        path.join(__dirname, '..', '/fixtures/users-empty.js'), done);
+    ConnectionStore.getConnection().dropDatabase(function(err) {
+      fixtures.load(
+          path.join(__dirname, '..', '/fixtures/users-empty.js'), done);
+    });
   });
 
   it('Empty params', function(done) {

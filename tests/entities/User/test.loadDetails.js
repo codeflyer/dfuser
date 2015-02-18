@@ -13,7 +13,7 @@ describe('user: User loadDetails', function() {
 
   beforeEach(function(done) {
     Factory.reset();
-    fixtures.clear(function(err) {
+    ConnectionStore.getConnection().dropDatabase(function(err) {
       fixtures.load(
           path.join(__dirname, '../..', '/fixtures/users.js'), done);
     });

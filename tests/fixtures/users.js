@@ -47,7 +47,7 @@ exports.dfcore_users = [
     'confirmationToken': {'token': '', 'expire': ''},
     'autoLoginToken': {
       'token': 'abcde6d8998e5271bdb6e1bb79941685ed1bcfd4be1d44bdda68240b',
-      'expire': Date.now() + 1000
+      'expire': Date.now() + 2000
     }
   },
   {
