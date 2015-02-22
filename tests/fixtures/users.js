@@ -1,5 +1,10 @@
 var crypto = require('crypto');
 
+exports.sequences = [
+  {'_id': 'dfcore_users', 'seq': 7},
+  {'_id': 'dfcore_roles', 'seq': 10}
+];
+
 /*jshint camelcase: false */
 // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
 exports.dfcore_users = [
@@ -26,7 +31,8 @@ exports.dfcore_users = [
       'e2353',
       'expire': Date.now() + 1000000
     },
-    'autoLoginToken': {'token': '', 'expire': ''}
+    'autoLoginToken': {'token': '', 'expire': ''},
+    'roles' : ['admin', 'guest']
   },
   {
     '_id': 2, 'username': 'test2@test.com',
@@ -48,7 +54,8 @@ exports.dfcore_users = [
     'autoLoginToken': {
       'token': 'abcde6d8998e5271bdb6e1bb79941685ed1bcfd4be1d44bdda68240b',
       'expire': Date.now() + 2000
-    }
+    },
+    'roles' : ['publisher', 'guest']
   },
   {
     '_id': 3,
@@ -146,6 +153,22 @@ exports.dfcore_users = [
   }
 ];
 
-exports.sequences = [
-  {'_id': 'dfcore_users', 'seq': 7}
+/*jshint camelcase: false */
+// jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+exports.dfcore_roles = [
+  {
+    '_id': 1,
+    'name': 'admin',
+    'isAdmin': true
+  },
+  {
+    '_id': 2,
+    'name': 'publisher',
+    'isAdmin': false
+  },
+  {
+    '_id': 3,
+    'name': 'guest',
+    'isAdmin': false
+  }
 ];
