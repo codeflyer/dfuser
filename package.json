@@ -25,7 +25,7 @@
     "ejs": "^2.2.4",
     "entityx": "^0.2.4",
     "grunt": "^0.4.5",
-    "mongodb": "*",
+    "mongodb": "^1.4.14",
     "pub-sub-then": "^0.1.5",
     "redis": "^0.10.3",
     "should": "*",

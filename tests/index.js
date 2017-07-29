@@ -24,6 +24,7 @@ var userModule = require('../lib/index');
 console.log('config');
 console.log(config);
 userModule.init(config);
+console.log('User module initialized');
 
 var ConnectionStore = require('connection-store');
 var ready = require('readyness');
@@ -40,6 +41,7 @@ MongoClient.connect(
         console.log('ERROR ON MONGO CONNECTION: ' + err);
         throw err;
       }
+      console.log('Connected: ', 'mongodb://localhost/' + global.DATABASE_NAME)
       EntityX.ConnectionManager.addConnection(db);
       mongoConnected();
     });
